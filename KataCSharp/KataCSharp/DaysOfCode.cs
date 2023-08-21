@@ -1,19 +1,9 @@
-﻿using Microsoft.VisualBasic;
+﻿
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics.Metrics;
-using System.Diagnostics;
-using System.Linq;
-using System.Reflection;
-using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Channels;
-using System.Threading;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Xml.Linq;
+
 namespace KataCSharp
 {
     public static class DaysOfCode
@@ -37,13 +27,24 @@ namespace KataCSharp
         }
         
         
-        
         //        Exercise 2: Has12
         //Create a boolean method called Has12 that takes in an integer array "nums". Given an array of ints, return true if there is a 1 in the array with a 2 somewhere later in the array.
         //For example:
         //has12([1, 3, 2]) → true
         //has12([3, 1, 2]) → true
         //has12([3, 1, 4, 5, 2]) → true
+
+        public static bool Day02Has12(int[] nums)
+        {
+            bool result = false;
+            int indexOne = Array.IndexOf(nums, 1);
+            int indexTwo = Array.IndexOf(nums, 2);
+            if (indexOne >= 0 && indexOne < indexTwo)
+            {
+                result = true;
+            }
+            return result;
+        }
 
         //Exercise 3: GreenTicket
         //Create an integer method called GreenTicket that takes in three integers, "a". "b", and "c"
