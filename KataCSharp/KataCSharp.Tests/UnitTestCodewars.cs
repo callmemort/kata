@@ -12,6 +12,7 @@ public class UnitTestCodewars
     [InlineData("1234", "123", "July 9, 2015", "July 2, 2015", false)]
     [InlineData("1", "1", "July 9, 2020", "July 9, 2020", true)]
     [InlineData("1", "1", "July 10, 2020", "July 9, 2020", false)]
+    [InlineData("123", "123", "July 10, 2020", "July 9, 2021", true)]
     public void TestCheckCoupon(string enteredCode, string correctCode, string currentDate, string expirationDate, bool expected)
     {
         bool testResult = CodeWars.CheckCoupon(enteredCode, correctCode, currentDate, expirationDate); //act

@@ -2,16 +2,14 @@
 using Microsoft.VisualBasic;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Diagnostics.Metrics;
+using System;
+using System.ComponentModel;
 
 namespace KataCSharp;
 
 public class CodeWars
 {
-    public bool IsPrime(int candidate)
-    {
-        throw new NotImplementedException("Not implemented.");
-    }
-
+    
 
     /// <summary>
     /// https://www.codewars.com/kata/539de388a540db7fec000642/train/csharp
@@ -30,18 +28,14 @@ public class CodeWars
         bool codesAreEqual = enteredCode.Equals(correctCode);
         DateTime expDateTime = Convert.ToDateTime(expirationDate);
         DateTime currDateTime = Convert.ToDateTime(currentDate);
-        bool isNotExpired = false;
-        if ((currDateTime.DayOfYear <= expDateTime.DayOfYear) && (currDateTime.Year <= expDateTime.Year))
-        {
-            isNotExpired = true;
-        }
+        bool isNotExpired = currDateTime <= expDateTime ? true : false;
+        
         if (codesAreEqual && isNotExpired)
         {
             return true;
         }
         else
         {
-
             return false;
         }
     }
