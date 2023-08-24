@@ -1,15 +1,112 @@
 ﻿
-using Microsoft.VisualBasic;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
+using Microsoft.CSharp;
+
 using System.Diagnostics.Metrics;
 using System;
+
 using System.ComponentModel;
 
 namespace KataCSharp;
 
 public class CodeWars
 {
-    
+
+    /// <summary>
+    /// https://www.codewars.com/kata/5b76a34ff71e5de9db0000f2/train/csharp
+    /// In this Kata, you will be given a series of times at which an alarm sounds. 
+    /// Your task will be to determine the maximum time interval between alarms. 
+    /// Each alarm starts ringing at the beginning of the corresponding minute and rings for exactly one minute. 
+    /// The times in the array are not in chronological order. 
+    /// Ignore duplicate times, if any.
+    /// 
+    /// </summary>
+    /// <param name="arr"></param>
+    /// <returns></returns>
+    public static string TimeSolve(string[] arr)
+    {
+      
+        List<int> times = new List<int>();
+        foreach (string time in arr)
+        {
+            int hours = int.Parse(time.Substring(0, 2));
+            int minutes = int.Parse(time.Substring(3, 2));
+            minutes += hours * 60; //convert hh:mm str to minutes in 1440 minute day
+            times.Add(minutes);
+        }
+        times.Sort();
+        //first handle 24 hour wrap around interval
+        int first = (1440 - times[times.Count - 1] + times[0] - 1);
+        List<int> intervals = new List<int> { first };
+                       
+        for (int i = times.Count -1; i > 0; i--)
+        {
+            int interval;
+            interval = times[i] - times[i-1] - 1;  //subtract 1 minute for alarm ringing time
+            intervals.Add(interval);
+        }
+        intervals.Sort();
+        intervals.Reverse();
+        int maxMinutes = intervals[0]; //get largest interval
+        int resultHours = maxMinutes / 60;
+        int resultMinutes = maxMinutes % 60;
+
+        string result = $"{resultHours.ToString("D2")}:{resultMinutes.ToString("D2")}";
+        return result;
+    }
+
+
+
+    public static int CheckExam(string[] arr1, string[] arr2)
+    {
+        int score = 0;
+        for (int i = 0; i < arr1.Length; i++)
+        {
+            if (arr1[i] == arr2[i])
+            {
+                score += 4;
+            }
+            else if (String.IsNullOrEmpty(arr2[i]))
+            {
+                score += 0;
+            }
+            else
+            {
+                score += -1;
+            }
+
+        }
+        score = score < 0 ? 0 : score;
+        return score;
+
+    }
+
+
+    /// <summary>
+    /// Your task is to write a function which returns the sum of a sequence of integers.
+    /// The sequence is defined by 3 non-negative values: begin, end, step.
+    /// If begin value is greater than the end, your function should return 0. 
+    /// If end is not the result of an integer number of steps, then don't add it to the sum. See the 4th example below.
+    /// Examples
+    /// 2,2,2 --> 2
+    /// 2,6,2 --> 12 (2 + 4 + 6)
+    /// 1,5,1 --> 15 (1 + 2 + 3 + 4 + 5)
+    /// 1,5,3  --> 5 (1 + 4)
+    /// </summary>
+    /// <param name="start"></param>
+    /// <param name="end"></param>
+    /// <param name="step"></param>
+    /// <returns></returns>
+    public static int SequenceSum(int start, int end, int step)
+    {
+        int sum = 0;
+        for (int i = start; i <= end; i += step)
+        {
+            sum += i;
+        }
+
+        return sum;
+    }
 
     /// <summary>
     /// https://www.codewars.com/kata/539de388a540db7fec000642/train/csharp
@@ -29,7 +126,7 @@ public class CodeWars
         DateTime expDateTime = Convert.ToDateTime(expirationDate);
         DateTime currDateTime = Convert.ToDateTime(currentDate);
         bool isNotExpired = currDateTime <= expDateTime ? true : false;
-        
+
         if (codesAreEqual && isNotExpired)
         {
             return true;
