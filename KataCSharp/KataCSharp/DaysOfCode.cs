@@ -17,7 +17,7 @@ namespace KataCSharp
         //swapEnds([1, 2, 3, 4]) → [4, 2, 3, 1]
         //        swapEnds([1, 2, 3]) → [3, 2, 1]
         //        swapEnds([8, 6, 7, 9, 5]) → [5, 6, 7, 9, 8]
-        public static int[] Day01SwapEnds(int[] nums) 
+        public static int[] Day01SwapEnds(int[] nums)
         {
             int start = nums[0];
             int end = nums[nums.Length - 1];
@@ -25,8 +25,8 @@ namespace KataCSharp
             nums[0] = end;
             return nums;
         }
-        
-        
+
+
         //        Exercise 2: Has12
         //Create a boolean method called Has12 that takes in an integer array "nums". Given an array of ints, return true if there is a 1 in the array with a 2 somewhere later in the array.
         //For example:
@@ -48,23 +48,70 @@ namespace KataCSharp
 
         //Exercise 3: GreenTicket
         //Create an integer method called GreenTicket that takes in three integers, "a". "b", and "c"
-        //You have a green lottery ticket, with ints a, b, and c on it. If the numbers are all different from each other, the result is 0. If all of the numbers are the same, the result is 20. If two of the numbers are the same, the result is 10.
+        //You have a green lottery ticket, with ints a, b, and c on it. If the numbers are all different from each other, the result is 0.
+        //If all of the numbers are the same, the result is 20.
+        //If two of the numbers are the same, the result is 10.
         //greenTicket(1, 2, 3) → 0
         //greenTicket(2, 2, 2) → 20
         //greenTicket(1, 1, 2) → 10
 
+        public static int Day03GreenTicket(int a, int b, int c)
+        {
+            if (a == b && b == c) { return 20; }
+            else if (a == b || a == c || b == c) { return 10; }
+            else { return 0; }
+        }
+
+
         //Exercise 4: Start1
-        //Create an integer method called Start1 that takes in two integer arrays "a" and "b". Start with 2 int arrays, a and b, of any length.Return how many of the arrays have 1 as their first element.
+        //Create an integer method called Start1 that takes in two integer arrays "a" and "b".
+        //Start with 2 int arrays, a and b, of any length.
+        //Return how many of the arrays have 1 as their first element.
         //        start1([1, 2, 3], [1, 3]) → 2
         //start1([7, 2, 3], [1]) → 1
         //start1([1, 2], []) → 1
-
+        public static int Day04Start1(int[] a, int[] b)
+        {
+            int result = 0;
+            if (a.Length > 0)
+            {
+                if (a[0] == 1)
+                {
+                    result++;
+                }
+            }
+            if (b.Length > 0)
+            {
+                if (b[0] == 1)
+                {
+                    result++;
+                }
+            }
+            return result;
+        }
         //Exercise 5: FizzArray3
         //        Create an integer array method called FizzArray3  that takes in two integers "start" and "end"
-        //Given start and end numbers, return a new array containing the sequence of integers from start up to but not including end, so start=5 and end = 10 yields {5, 6, 7, 8, 9}. The end number will be greater or equal  to the start number.Note that a length-0 array is valid.
+        //Given start and end numbers, return a new array containing the sequence of integers from start up to but not including end,
+        //so start=5 and end = 10 yields {5, 6, 7, 8, 9}.
+        //The end number will be greater or equal  to the start number.Note that a length-0 array is valid.
         //    fizzArray3(5, 10) → [5, 6, 7, 8, 9]
         //    fizzArray3(11, 18) → [11, 12, 13, 14, 15, 16, 17]
         //    fizzArray3(1, 3) → [1, 2]
+
+        public static int[] Day05FizzArray3(int start, int end)
+        {
+            int[] result = new int[end - start];
+            if (result.Length > 0)
+            {
+                result[0] = start;
+                for (int i = 1; i < (end - start); i++)
+                {
+                    result[i] = result[i - 1] + 1;
+                }
+            }
+            return result;
+        }
+
         //    Exercise 6: Only14
         //    Create a boolean method called Only14 that takes in an integer array “nums.” Given an array of ints, return true if every element is a 1 or a 4.
         //only14([1, 4, 1, 4]) → true
