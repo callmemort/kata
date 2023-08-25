@@ -113,16 +113,45 @@ namespace KataCSharp
         }
 
         //    Exercise 6: Only14
-        //    Create a boolean method called Only14 that takes in an integer array “nums.” Given an array of ints, return true if every element is a 1 or a 4.
+        //    Create a boolean method called Only14 that takes in an integer array “nums.” Given an array of ints,
+        //    return true if every element is a 1 or a 4.
         //only14([1, 4, 1, 4]) → true
         //only14([1, 4, 2, 4]) → false
         //only14([1, 1]) → true
+        public static bool Day06Only14(int[] nums)
+        {
+            foreach (int num in nums)
+            {
+                if(num != 1)
+                {
+                    if(num != 4) { return false; }
+                    
+                }
+            }
+            return true;
+        }
+
+
 
         //Exercise 7: NoTriples
-        //    Create a boolean method called NoTuples that takes in an integer array “nums”.  Given an array of ints, we'll say that a triple is a value appearing 3 times in a row in the array. Return true if the array does not contain any triples.
+        //    Create a boolean method called NoTuples that takes in an integer array “nums”.
+        //    Given an array of ints, we'll say that a triple is a value appearing 3 times in a row in the array.
+        //    Return true if the array does not contain any triples.
         //noTriples([1, 1, 2, 2, 1]) → true
         //noTriples([1, 1, 2, 2, 2, 1]) → false
         //noTriples([1, 1, 1, 2, 2, 2, 1]) → false
+        public static bool Day07NoTuples(int[] nums)
+        {
+            for (int i = 0; i < nums.Length - 2; i++)
+            {
+                if (nums[i] == nums[i+1] && nums[i+1] == nums[i + 2])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
 
         //Exercise 8: No23
         //Create a method of type boolean called No23 that takes in an integer array “nums”. Given an int array length 2, return true if it does not contain a 2 or 3.

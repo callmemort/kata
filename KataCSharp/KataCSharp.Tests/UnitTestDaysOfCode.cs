@@ -69,6 +69,31 @@ namespace KataCSharp.Tests
             int[] testResult = DaysOfCode.Day05FizzArray3(start, end);
             Assert.Equal(expected, testResult);
         }
+        //Day06
+        [Theory]
+        [InlineData(new int[] { 1, 1, 4, 4 }, true)]
+        [InlineData( new int[] { 1,2,3,4 },false)]
+        [InlineData(new int[] {1,1 },true)]
+        [InlineData(new int[] { 0,4,1 }, false)]
+        
+        public void TestDay06Only14(int[] nums,bool expected)
+        {
+            bool testResult = DaysOfCode.Day06Only14(nums);
+            Assert.Equal(expected, testResult);
+        }
+        //Day07
+        [Theory]
+        [InlineData(new int[] { 1, 1, 4, 4,1,4 }, true)]
+        [InlineData(new int[] { 1, 2, 3,3,3,4 }, false)]
+        [InlineData(new int[] { 1, 1,1,23,15,75 }, false)]
+        [InlineData(new int[] { 1, 1, 1, 2, 2, 2, 1 }, false)]
+        [InlineData(new int[] {3,3,3 }, false)]
+        [InlineData(new int[] { 0, 0, -1 }, true)]
 
+        public void TestDay07NoTuples(int[] nums, bool expected)
+        {
+            bool testResult = DaysOfCode.Day07NoTuples(nums);
+            Assert.Equal(expected, testResult);
+        }
     }
 }
