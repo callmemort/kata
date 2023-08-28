@@ -12,6 +12,28 @@ namespace KataCSharp;
 public class CodeWars
 {
 
+
+    /// <summary>
+    /// Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
+    /// => returns "(123) 456-7890"
+    /// </summary>
+    /// <param name="numbers"></param>
+    /// <returns>A string in format (###) ###-####</returns>
+    public static string CreatePhoneNumber(int[] numbers)
+    {
+        string numStr = string.Empty;
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            numStr += numbers[i].ToString();
+        }
+
+        
+        string result = $"({numStr.Substring(0, 3)}) {numStr.Substring(3, 3)}-{numStr.Substring(6, 4)}";
+        return result;
+    }
+
+
     /// <summary>
     /// https://www.codewars.com/kata/5b76a34ff71e5de9db0000f2/train/csharp
     /// In this Kata, you will be given a series of times at which an alarm sounds. 

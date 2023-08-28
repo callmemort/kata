@@ -5,6 +5,13 @@ namespace KataCSharp.Tests;
 public class UnitTestCodewars
 {
     [Fact]
+    public void TestCreatePhoneNumber()
+    {
+        Assert.Equal("(614) 201-9876", CodeWars.CreatePhoneNumber(new int[] { 6, 1, 4, 2, 0, 1, 9, 8, 7, 6 }));
+        Assert.Equal("(212) 555-1234", CodeWars.CreatePhoneNumber(new int[] {2,1,2,5,5,5,1,2,3,4 }));
+    }
+
+    [Fact]
     public void TestTimeSolve()
     {
         Assert.Equal("23:59", CodeWars.TimeSolve(new String[] { "14:51" }));

@@ -95,5 +95,27 @@ namespace KataCSharp.Tests
             bool testResult = DaysOfCode.Day07NoTuples(nums);
             Assert.Equal(expected, testResult);
         }
+        //Day08
+        [Theory]
+        [InlineData(new int[] {2,3}, false)]
+        [InlineData(new int[] { 4, 5 }, true)]
+        [InlineData(new int[] { -2, -3, }, true)]
+        [InlineData(new int[] { 2, 2, }, false)]
+        public void TestDay08No23(int[] nums, bool expected)
+        {
+            bool testResult = DaysOfCode.Day08No23(nums);
+            Assert.Equal(expected, testResult);
+        }
+        //Day09
+        [Theory]
+        [InlineData(new int[] { 1,2,3,4}, false)]
+        [InlineData(new int[] { 2,3,5 }, true)]
+        [InlineData(new int[] {  }, true)]
+        [InlineData(new int[] { 0,2,3,5,4 }, false)]
+        public void TestDay09No14(int[] nums, bool expected)
+        {
+            bool testResult = DaysOfCode.Day09No14(nums);
+            Assert.Equal(expected, testResult);
+        }
     }
 }

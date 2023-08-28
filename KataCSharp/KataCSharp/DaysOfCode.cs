@@ -158,12 +158,37 @@ namespace KataCSharp
         //no23([4, 5]) → true
         //no23([4, 2]) → false
         //no23([3, 5]) → false
+        public static bool Day08No23(int[] nums)
+        {
+            bool result = true;
+            foreach (int num in nums)
+            {
+                if(num == 2 || num == 3)
+                {
+                    result = false;
+                }
+            }
+            return result;
+        }
 
         //Exercise 9: No14
         //Create a boolean method called No14 that takes in an integer array “nums”. Given an array of ints, return true if it contains no 1's and it contains no 4's.
         //no14([7, 2, 3]) → true
         //no14([1, 2, 3, 4]) → false
         //no14([2, 3, 4]) → false
+        public static bool Day09No14(int[] nums)
+        {
+            bool result = true;
+            foreach (int num in nums)
+            {
+                if (num == 1 || num == 4)
+                {
+                    result = false;
+                }
+            }
+
+            return result;
+        }
 
         //Exercise 10: More14
         //    Create a boolean method called More14 that takes in an array of type integer “nums”. Given an array of ints, return true if the number of 1's is greater than the number of 4's
