@@ -117,5 +117,27 @@ namespace KataCSharp.Tests
             bool testResult = DaysOfCode.Day09No14(nums);
             Assert.Equal(expected, testResult);
         }
+        //Day10
+        [Theory]
+        [InlineData(new int[] { 1, 2, 3, 4 }, false)]
+        [InlineData(new int[] { 1, 1, 3, 4 }, true)]
+        [InlineData(new int[] { 1, 4, 4, 4 }, false)]
+        [InlineData(new int[] { 2,3,5,6,7 }, false)]
+        [InlineData(new int[] { 4, 4, 1, 1, 3, 0, 1 }, true)]
+        public void TestDay10More14(int[] nums, bool expected)
+        {
+            bool testResult = DaysOfCode.Day10More14(nums);
+            Assert.Equal(expected, testResult);
+        }
+        //Day11
+        [Theory]
+        [InlineData(new int[] { 1, 2, 3, 4 }, new int[] { 2, 3 })]
+        [InlineData(new int[] { 7, 1, 2, 3, 4, 9 }, new int[] { 2, 3 })]
+        [InlineData(new int[] { 1, 2 }, new int[] { 1, 2 })]
+        public void TestDay11MakeMiddle(int[] nums, int[] expected)
+        {
+            int[] testResult = DaysOfCode.Day11MakeMiddle(nums);
+            Assert.Equal(expected, testResult);
+        }
     }
 }

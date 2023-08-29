@@ -5,6 +5,17 @@ namespace KataCSharp.Tests;
 public class UnitTestCodewars
 {
     [Fact]
+    public void TestExpandedForm()
+    {
+        string test1 = CodeWars.ExpandedForm(1205);
+        Assert.Equal("1000 + 200 + 5", test1);
+        string test2 = CodeWars.ExpandedForm(10201);
+        Assert.Equal("10000 + 200 + 1", test2);
+        string test3 = CodeWars.ExpandedForm(70304);
+        Assert.Equal("70000 + 300 + 4", test3);
+
+    }
+    [Fact]
     public void TestCreatePhoneNumber()
     {
         Assert.Equal("(614) 201-9876", CodeWars.CreatePhoneNumber(new int[] { 6, 1, 4, 2, 0, 1, 9, 8, 7, 6 }));

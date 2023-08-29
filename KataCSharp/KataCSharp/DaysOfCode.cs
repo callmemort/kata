@@ -195,12 +195,36 @@ namespace KataCSharp
         //    more14([1, 4, 1]) → true
         //more14([1, 4, 1, 4]) → false
         //more14([1, 1]) → true
+        public static bool Day10More14(int[] nums)
+        {
+            int ones = 0;
+            int fours = 0;
+            foreach  (int num in nums)
+            {
+                if (num == 1) { ones++; }
+                else if(num == 4) { fours++; }
+                else { /*do nothing */}
+            }
+            if (ones > fours) { return true; } else { return false; }   
+        }
 
         //Exercise 11: MakeMiddle
-        //    Create an integer array method called MakeMiddle that takes in an integer array “nums”. Given an array of ints of even length, return a new array length 2 containing the middle two elements from the original array.The original array will be length 2 or more.
+        //    Create an integer array method called MakeMiddle that takes in an integer array “nums”.
+        //    Given an array of ints of even length, return a new array length 2 containing the middle two elements from the original array.
+        //    The original array will be length 2 or more.
         //    makeMiddle([1, 2, 3, 4]) → [2, 3]
         //    makeMiddle([7, 1, 2, 3, 4, 9]) → [2, 3]
         //    makeMiddle([1, 2]) → [1, 2]
+        public static int[] Day11MakeMiddle(int[] nums)
+        {
+            //4 -> 1,2
+            //6 -> 2,3
+            //2 -> 0,1
+            //length / 2 & -1
+            int[] result = { nums[nums.Length / 2 - 1], nums[nums.Length / 2] };
+            return result;
+        }
+
         //    Exercise 12: MakeLast
         //    Create an integer array method called MakeLast that takes in an integer array “nums”. Given an int array, return a new array with double the length where its last element is the same as the original array, and all the other elements are 0. The original array will be length 1 or more.Note: by default, a new int array contains all 0's.
         //makeLast([4, 5, 6]) → [0, 0, 0, 0, 0, 6]

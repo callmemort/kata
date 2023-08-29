@@ -12,6 +12,47 @@ namespace KataCSharp;
 public class CodeWars
 {
 
+    /// <summary>
+    /// You will be given a number and you will need to return it as a string in Expanded Form. For example:
+    /// (12); # Should return "10 + 2"
+    /// (70304); # Should return "70000 + 300 + 4"
+    /// </summary>
+    /// <param name="num"></param>
+    /// <returns>A string</returns>
+    /// <exception cref="NotImplementedException"></exception>
+    public static string ExpandedForm(long num)
+    {
+        string result = string.Empty;
+        long current = num;
+        List<long> resultSlices = new List<long>(); 
+        while (current > 0)
+        {
+            long divisor = 1;
+            while ((double)current / (divisor * 10) > 1)
+            {
+                divisor *= 10;
+            }
+            //do truncation division to get first digit, multiply by divisor
+            long truncated = current / divisor;
+            long resultSlice = truncated * divisor;
+            current -= resultSlice;
+            resultSlices.Add(resultSlice);
+        }
+        //build result string
+        for (int i = 0; i < resultSlices.Count; i++)
+        {
+            if (i == resultSlices.Count - 1)
+            {
+                result += $"{resultSlices[i]}";
+            }
+            else
+            {
+                result += $"{resultSlices[i]} + ";
+            }
+        }
+
+        return result;
+    }
 
     /// <summary>
     /// Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
