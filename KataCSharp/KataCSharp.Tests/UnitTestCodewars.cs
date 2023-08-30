@@ -4,6 +4,19 @@ namespace KataCSharp.Tests;
 
 public class UnitTestCodewars
 {
+    [Theory]
+    [InlineData("a ClAsH oF kiNGs","A Clash Of Kings")]
+    [InlineData("a ClAsH oF kiNGs","A Clash of Kings", "of")]
+    [InlineData("a ClAsH oF kiNGs", "A Clash of Kings", "of a")]
+    //[InlineData("a ClAsH oF kiNGs", "A Clash Of Kings")]
+
+    public void TestTitleCase(string text, string expected,  string minors = "")
+    {
+        string testResult = CodeWars.TitleCase(text, minors);
+
+        Assert.Equal(expected, testResult);
+    }
+
     [Fact]
     public void TestExpandedForm()
     {

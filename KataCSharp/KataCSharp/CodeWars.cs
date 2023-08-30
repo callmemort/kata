@@ -11,6 +11,49 @@ namespace KataCSharp;
 
 public class CodeWars
 {
+    /// <summary>
+    /// 
+    /// 
+    /// </summary>
+    /// <param name="text">Text to be changed to title case</param>
+    /// <param name="minorWords">Optional minor words to keep lower case</param>
+    /// <returns></returns>
+    public static string TitleCase(string text, string minorWords = "")
+    {
+        string[] words = text.ToLower().Split(" ");
+        string[] minors = minorWords is null ? new string[] { } :  minorWords.ToLower().Split(" ");
+
+        for (int i = 0; i < words.Length; i++)
+        {//words loop
+
+            if (Array.IndexOf(minors, words[i]) < 0 || i == 0)
+            {
+                char[] thisWord = words[i].ToCharArray();
+
+                for (int j = 0; j < thisWord.Length; j++)
+                {//letters loop
+                    if (j == 0)
+                    {
+                        thisWord[j] = Char.ToUpper(thisWord[j]);
+                    }
+                    else
+                    {
+                        thisWord[j] = Char.ToLower(thisWord[j]);
+
+                    }
+
+                }
+                words[i] = new String(thisWord);
+            }
+            else { words[i] = words[i].ToLower(); }
+        }
+        string result = String.Join(" ", words);
+
+        return result;
+    }
+
+
+
 
     /// <summary>
     /// You will be given a number and you will need to return it as a string in Expanded Form. For example:
@@ -24,7 +67,7 @@ public class CodeWars
     {
         string result = string.Empty;
         long current = num;
-        List<long> resultSlices = new List<long>(); 
+        List<long> resultSlices = new List<long>();
         while (current > 0)
         {
             long divisor = 1;
@@ -69,7 +112,7 @@ public class CodeWars
             numStr += numbers[i].ToString();
         }
 
-        
+
         string result = $"({numStr.Substring(0, 3)}) {numStr.Substring(3, 3)}-{numStr.Substring(6, 4)}";
         return result;
     }
@@ -88,7 +131,7 @@ public class CodeWars
     /// <returns></returns>
     public static string TimeSolve(string[] arr)
     {
-      
+
         List<int> times = new List<int>();
         foreach (string time in arr)
         {
@@ -101,11 +144,11 @@ public class CodeWars
         //first handle 24 hour wrap around interval
         int first = (1440 - times[times.Count - 1] + times[0] - 1);
         List<int> intervals = new List<int> { first };
-                       
-        for (int i = times.Count -1; i > 0; i--)
+
+        for (int i = times.Count - 1; i > 0; i--)
         {
             int interval;
-            interval = times[i] - times[i-1] - 1;  //subtract 1 minute for alarm ringing time
+            interval = times[i] - times[i - 1] - 1;  //subtract 1 minute for alarm ringing time
             intervals.Add(interval);
         }
         intervals.Sort();

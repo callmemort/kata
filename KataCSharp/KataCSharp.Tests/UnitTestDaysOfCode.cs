@@ -139,5 +139,15 @@ namespace KataCSharp.Tests
             int[] testResult = DaysOfCode.Day11MakeMiddle(nums);
             Assert.Equal(expected, testResult);
         }
+        //Day12
+        [Theory]
+        [InlineData(new int[] { 4, 5, 6 }, new int[] { 0, 0, 0, 0, 0, 6 })]
+        [InlineData(new int[] { 1,2 }, new int[] { 0, 0, 0, 2 })]
+        [InlineData(new int[] { 3 }, new int[] { 0,3 })]
+        public void TestDay12MakeLast(int[] nums, int[] expected)
+        {
+            int[] testResult = DaysOfCode.Day12MakeLast(nums);
+            Assert.Equal(expected, testResult);
+        }
     }
 }
