@@ -12,7 +12,20 @@ namespace KataCSharp;
 public class CodeWars
 {
     /// <summary>
-    /// 
+    /// Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+    /// </summary>
+    /// <param name="numbers"></param>
+    /// <returns></returns>
+
+    public static int sumTwoSmallestNumbers(int[] numbers)
+    {
+        Array.Sort(numbers);
+
+        int sum = numbers[0] + numbers[1];
+        return sum;
+    }
+    /// <summary>
+    /// Change a string to Title Case
     /// 
     /// </summary>
     /// <param name="text">Text to be changed to title case</param>

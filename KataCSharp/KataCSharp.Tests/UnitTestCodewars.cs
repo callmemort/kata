@@ -5,6 +5,15 @@ namespace KataCSharp.Tests;
 public class UnitTestCodewars
 {
     [Theory]
+    [InlineData(new int[] { 6, 1, 4, 2, 0, 1, 9, 8, 7, 6 }, 1)]
+    [InlineData(new int[] { 19,5,42,2,77 }, 7)]
+    public void TestSumTwoSmallest(int[] input, int expected)
+    {
+
+    }
+
+
+    [Theory]
     [InlineData("a ClAsH oF kiNGs","A Clash Of Kings")]
     [InlineData("a ClAsH oF kiNGs","A Clash of Kings", "of")]
     [InlineData("a ClAsH oF kiNGs", "A Clash of Kings", "of a")]

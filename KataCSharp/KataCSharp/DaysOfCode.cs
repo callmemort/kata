@@ -242,7 +242,8 @@ namespace KataCSharp
 
 
         //    Exercise 13: MakeEnds
-        //    Create an integer array method called MakeEnds that takes in an integer array “nums”. Given an array of ints, return a new array length 2 containing the first and last elements from the original array.The original array will be length 1 or more.
+        //    Create an integer array method called MakeEnds that takes in an integer array “nums”. Given an array of ints,
+        //    return a new array length 2 containing the first and last elements from the original array.The original array will be length 1 or more.
         //makeEnds([1, 2, 3]) → [1, 3]
         //    makeEnds([1, 2, 3, 4]) → [1, 4]
         //    makeEnds([7, 4, 6, 2]) → [7, 2]
@@ -252,6 +253,12 @@ namespace KataCSharp
         //lessBy10(1, 7, 11) → true
         //lessBy10(1, 7, 10) → false
         //lessBy10(11, 1, 7) → true
+
+        public static int[] Day13MakeEnds(int[] nums)
+        {
+            int[] result = { nums[0], nums[nums.Length - 1] };
+            return result;
+        }
 
         //Exercise 15: Has23
         //    Create a boolean method called Has23 that takes in an integer array “nums”. Given an int array length 2, return true if it contains a 2 or a 3.
