@@ -266,16 +266,42 @@ namespace KataCSharp
         //has23([4, 3]) → true
         //has23([4, 5]) → false
 
+        public static bool Day15Has23(int[] nums)
+        {
+            foreach (int num in nums)
+            {
+                if (num == 2 || num == 3)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         //Exercise 16: FizzArray
-        //Create an integer array method called FizzArray that takes in an integer ”n”. Given a number n, create and return a new int array of length n, containing the numbers 0, 1, 2, ... n-1. The given n may be 0, in which case just return a length 0 array.You do not need a separate if-statement for the length-0 case; the for-loop should naturally execute 0 times in that case, so it just works.The syntax to make a new int array is: new int[desired_length]
+        //Create an integer array method called FizzArray that takes in an integer ”n”. Given a number n, create and return a new int array of length n, containing the numbers 0, 1, 2, ... n-1.
+        //The given n may be 0, in which case just return a length 0 array.
+        //You do not need a separate if-statement for the length-0 case; the for-loop should naturally execute 0 times in that case, so it just works.
+        //The syntax to make a new int array is: new int[desired_length]
         //    fizzArray(4) → [0, 1, 2, 3]
         //    fizzArray(1) → [0]
         //    fizzArray(10) → [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        public static int[] Day16FizzArray(int n)
+        {
+            int[] result = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                result[i] = i;
+            }
+            return result;
+        }
         //    Exercise 17: Fix23
-        //    Create an integer array called Fix23 that takes in an integer array “nums”. Given an int array length 3, if there is a 2 in the array immediately followed by a 3, set the 3 element to 0. Return the changed array.
+        //    Create an integer array called Fix23 that takes in an integer array “nums”.
+        //    Given an int array length 3, if there is a 2 in the array immediately followed by a 3, set the 3 element to 0.
+        //    Return the changed array.
         //    fix23([1, 2, 3]) → [1, 2, 0]
         //    fix23([2, 3, 5]) → [2, 0, 5]
         //    fix23([1, 2, 1]) → [1, 2, 1]
+
 
         //    Exercise 18: EvenlySpaced
         //    Create a boolean method called EvenlySpaced that takes in three integers, “a”, “b”, and “c”; Given three ints, a b c, one of them is small, one is medium and one is large.Return true if the three values are evenly spaced, so the difference between small and medium is the same as the difference between medium and large.

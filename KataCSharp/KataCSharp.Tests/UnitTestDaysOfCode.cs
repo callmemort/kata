@@ -159,5 +159,30 @@ namespace KataCSharp.Tests
             int[] testResult = DaysOfCode.Day13MakeEnds(nums);
             Assert.Equal(expected, testResult);
         }
+        //Day15
+        [Theory]
+        [InlineData(new int[] {1,1}, false)]
+        [InlineData(new int[] { 1, 2 }, true)]
+        [InlineData(new int[] { 2, 3 }, true)]
+        [InlineData(new int[] { -2, -3 }, false)]
+        [InlineData(new int[] { 1,4,5,6,0,7, -3 }, false)]
+        [InlineData(new int[] { 1, 4,3, 6, 0, 7, -3 }, true)]
+        public void TestDay15Has23(int[] nums, bool expected)
+        {
+            bool testResult = DaysOfCode.Day15Has23(nums);
+            Assert.Equal(expected, testResult);
+        }
+        [Theory]
+        [InlineData(1, new int[] { 0 })]
+        [InlineData(4, new int[] { 0,1,2,3 })]
+        [InlineData(10, new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 })]
+
+        //Day16
+        public void TestDay16FizzArray(int n, int[] expected)
+        {
+            int[] testResult = DaysOfCode.Day16FizzArray(n);
+            Assert.Equal(expected, testResult);
+        }
+
     }
 }

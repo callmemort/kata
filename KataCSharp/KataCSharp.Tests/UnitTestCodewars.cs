@@ -1,15 +1,22 @@
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Xunit.Sdk;
 
 namespace KataCSharp.Tests;
 
 public class UnitTestCodewars
 {
+   
+
     [Theory]
     [InlineData(new int[] { 6, 1, 4, 2, 0, 1, 9, 8, 7, 6 }, 1)]
     [InlineData(new int[] { 19,5,42,2,77 }, 7)]
     public void TestSumTwoSmallest(int[] input, int expected)
     {
-
+        int testResult = CodeWars.sumTwoSmallestNumbers(input);
+        Assert.Equal(expected, testResult); 
     }
 
 
