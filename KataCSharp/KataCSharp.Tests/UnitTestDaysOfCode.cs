@@ -8,12 +8,12 @@ namespace KataCSharp.Tests
 {
     public class UnitTestDaysOfCode
     {
-        
+
         //Day01
         [Theory]
-        [InlineData(new int[]{0, 1, 2, 3 },new int[] { 3, 1, 2, 0 })]
-        [InlineData(new int[] { 19, 46, 1, 7 }, new int[] { 7,46,1,19 })]
-        [InlineData(new int[] { 1 }, new int[] {1 })]
+        [InlineData(new int[] { 0, 1, 2, 3 }, new int[] { 3, 1, 2, 0 })]
+        [InlineData(new int[] { 19, 46, 1, 7 }, new int[] { 7, 46, 1, 19 })]
+        [InlineData(new int[] { 1 }, new int[] { 1 })]
         [InlineData(new int[] { 8, 6, 7, 9, 5 }, new int[] { 5, 6, 7, 9, 8 })]
         public void TestDay01SwapEnds(int[] nums, int[] expected)
         {
@@ -23,10 +23,10 @@ namespace KataCSharp.Tests
 
         //Day02
         [Theory]
-        [InlineData(new int[] { 3,1,2 }, true)]
+        [InlineData(new int[] { 3, 1, 2 }, true)]
         [InlineData(new int[] { 1, 3, 2 }, true)]
         [InlineData(new int[] { 1 }, false)]
-        [InlineData(new int[] { 2,1,3,4 }, false)]
+        [InlineData(new int[] { 2, 1, 3, 4 }, false)]
         public void TestDay02Has12(int[] nums, bool expected)
         {
             bool testResult = DaysOfCode.Day02Has12(nums); //act
@@ -34,23 +34,23 @@ namespace KataCSharp.Tests
         }
         //Day03
         [Theory]
-        [InlineData(1,2,3,0)]
-        [InlineData(1,2,2,10)]
-        [InlineData(3,3,3,20)]
-        [InlineData(1,3,1,10)]
+        [InlineData(1, 2, 3, 0)]
+        [InlineData(1, 2, 2, 10)]
+        [InlineData(3, 3, 3, 20)]
+        [InlineData(1, 3, 1, 10)]
         [InlineData(2, 2, 3, 10)]
-        public void TestDay03GreenTicket(int a,int b,int c, int expected)
+        public void TestDay03GreenTicket(int a, int b, int c, int expected)
         {
-            int testResult = DaysOfCode.Day03GreenTicket(a,b,c); //act
+            int testResult = DaysOfCode.Day03GreenTicket(a, b, c); //act
             Assert.Equal(expected, testResult); //assert
         }
         //Day04
         [Theory]
-        [InlineData(new int[] { 1, 2, 3 }, new int[] { 1, 1 },2)]
+        [InlineData(new int[] { 1, 2, 3 }, new int[] { 1, 1 }, 2)]
         [InlineData(new int[] { 2, 1, 1 }, new int[] { 1, 4 }, 1)]
-        [InlineData(new int[] { 1, 2, 3 }, new int[] { 4}, 1)]
-        [InlineData(new int[0] , new int[0], 0)]
-        [InlineData(new int[] { 1,4,6,7,1,1,0,-5 }, new int[0] {}, 1)]
+        [InlineData(new int[] { 1, 2, 3 }, new int[] { 4 }, 1)]
+        [InlineData(new int[0], new int[0], 0)]
+        [InlineData(new int[] { 1, 4, 6, 7, 1, 1, 0, -5 }, new int[0] { }, 1)]
         public void TestDay04Start1(int[] a, int[] b, int expected)
         {
             int testResult = DaysOfCode.Day04Start1(a, b); //act
@@ -63,7 +63,7 @@ namespace KataCSharp.Tests
         [InlineData(4, 4, new int[] { })]
         [InlineData(6, 7, new int[] { 6 })]
         [InlineData(-6, -2, new int[] { -6, -5, -4, -3 })]
-        [InlineData(0,0,new int[] { })]
+        [InlineData(0, 0, new int[] { })]
         public void TestDay05FizzArray3(int start, int end, int[] expected)
         {
             int[] testResult = DaysOfCode.Day05FizzArray3(start, end);
@@ -72,22 +72,22 @@ namespace KataCSharp.Tests
         //Day06
         [Theory]
         [InlineData(new int[] { 1, 1, 4, 4 }, true)]
-        [InlineData( new int[] { 1,2,3,4 },false)]
-        [InlineData(new int[] {1,1 },true)]
-        [InlineData(new int[] { 0,4,1 }, false)]
-        
-        public void TestDay06Only14(int[] nums,bool expected)
+        [InlineData(new int[] { 1, 2, 3, 4 }, false)]
+        [InlineData(new int[] { 1, 1 }, true)]
+        [InlineData(new int[] { 0, 4, 1 }, false)]
+
+        public void TestDay06Only14(int[] nums, bool expected)
         {
             bool testResult = DaysOfCode.Day06Only14(nums);
             Assert.Equal(expected, testResult);
         }
         //Day07
         [Theory]
-        [InlineData(new int[] { 1, 1, 4, 4,1,4 }, true)]
-        [InlineData(new int[] { 1, 2, 3,3,3,4 }, false)]
-        [InlineData(new int[] { 1, 1,1,23,15,75 }, false)]
+        [InlineData(new int[] { 1, 1, 4, 4, 1, 4 }, true)]
+        [InlineData(new int[] { 1, 2, 3, 3, 3, 4 }, false)]
+        [InlineData(new int[] { 1, 1, 1, 23, 15, 75 }, false)]
         [InlineData(new int[] { 1, 1, 1, 2, 2, 2, 1 }, false)]
-        [InlineData(new int[] {3,3,3 }, false)]
+        [InlineData(new int[] { 3, 3, 3 }, false)]
         [InlineData(new int[] { 0, 0, -1 }, true)]
 
         public void TestDay07NoTuples(int[] nums, bool expected)
@@ -97,7 +97,7 @@ namespace KataCSharp.Tests
         }
         //Day08
         [Theory]
-        [InlineData(new int[] {2,3}, false)]
+        [InlineData(new int[] { 2, 3 }, false)]
         [InlineData(new int[] { 4, 5 }, true)]
         [InlineData(new int[] { -2, -3, }, true)]
         [InlineData(new int[] { 2, 2, }, false)]
@@ -108,10 +108,10 @@ namespace KataCSharp.Tests
         }
         //Day09
         [Theory]
-        [InlineData(new int[] { 1,2,3,4}, false)]
-        [InlineData(new int[] { 2,3,5 }, true)]
-        [InlineData(new int[] {  }, true)]
-        [InlineData(new int[] { 0,2,3,5,4 }, false)]
+        [InlineData(new int[] { 1, 2, 3, 4 }, false)]
+        [InlineData(new int[] { 2, 3, 5 }, true)]
+        [InlineData(new int[] { }, true)]
+        [InlineData(new int[] { 0, 2, 3, 5, 4 }, false)]
         public void TestDay09No14(int[] nums, bool expected)
         {
             bool testResult = DaysOfCode.Day09No14(nums);
@@ -122,7 +122,7 @@ namespace KataCSharp.Tests
         [InlineData(new int[] { 1, 2, 3, 4 }, false)]
         [InlineData(new int[] { 1, 1, 3, 4 }, true)]
         [InlineData(new int[] { 1, 4, 4, 4 }, false)]
-        [InlineData(new int[] { 2,3,5,6,7 }, false)]
+        [InlineData(new int[] { 2, 3, 5, 6, 7 }, false)]
         [InlineData(new int[] { 4, 4, 1, 1, 3, 0, 1 }, true)]
         public void TestDay10More14(int[] nums, bool expected)
         {
@@ -142,8 +142,8 @@ namespace KataCSharp.Tests
         //Day12
         [Theory]
         [InlineData(new int[] { 4, 5, 6 }, new int[] { 0, 0, 0, 0, 0, 6 })]
-        [InlineData(new int[] { 1,2 }, new int[] { 0, 0, 0, 2 })]
-        [InlineData(new int[] { 3 }, new int[] { 0,3 })]
+        [InlineData(new int[] { 1, 2 }, new int[] { 0, 0, 0, 2 })]
+        [InlineData(new int[] { 3 }, new int[] { 0, 3 })]
         public void TestDay12MakeLast(int[] nums, int[] expected)
         {
             int[] testResult = DaysOfCode.Day12MakeLast(nums);
@@ -151,9 +151,9 @@ namespace KataCSharp.Tests
         }
         //Day13
         [Theory]
-        [InlineData(new int[] { 1,2,3}, new int[] {1,3})]
-        [InlineData(new int[] { 7, 4, 6, 2 }, new int[] {7,2 })]
-        [InlineData(new int[] { 1, 2, 3 ,4}, new int[] { 1, 4 })]
+        [InlineData(new int[] { 1, 2, 3 }, new int[] { 1, 3 })]
+        [InlineData(new int[] { 7, 4, 6, 2 }, new int[] { 7, 2 })]
+        [InlineData(new int[] { 1, 2, 3, 4 }, new int[] { 1, 4 })]
         public void TestDay13MakeEnds(int[] nums, int[] expected)
         {
             int[] testResult = DaysOfCode.Day13MakeEnds(nums);
@@ -161,12 +161,12 @@ namespace KataCSharp.Tests
         }
         //Day15
         [Theory]
-        [InlineData(new int[] {1,1}, false)]
+        [InlineData(new int[] { 1, 1 }, false)]
         [InlineData(new int[] { 1, 2 }, true)]
         [InlineData(new int[] { 2, 3 }, true)]
         [InlineData(new int[] { -2, -3 }, false)]
-        [InlineData(new int[] { 1,4,5,6,0,7, -3 }, false)]
-        [InlineData(new int[] { 1, 4,3, 6, 0, 7, -3 }, true)]
+        [InlineData(new int[] { 1, 4, 5, 6, 0, 7, -3 }, false)]
+        [InlineData(new int[] { 1, 4, 3, 6, 0, 7, -3 }, true)]
         public void TestDay15Has23(int[] nums, bool expected)
         {
             bool testResult = DaysOfCode.Day15Has23(nums);
@@ -174,7 +174,7 @@ namespace KataCSharp.Tests
         }
         [Theory]
         [InlineData(1, new int[] { 0 })]
-        [InlineData(4, new int[] { 0,1,2,3 })]
+        [InlineData(4, new int[] { 0, 1, 2, 3 })]
         [InlineData(10, new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 })]
 
         //Day16
@@ -184,5 +184,19 @@ namespace KataCSharp.Tests
             Assert.Equal(expected, testResult);
         }
 
+        //Day17
+        //    fix23([1, 2, 3]) → [1, 2, 0]
+        //    fix23([2, 3, 5]) → [2, 0, 5]
+        //    fix23([1, 2, 1]) → [1, 2, 1]
+        [Theory]
+        [InlineData(new int[] { 1, 2, 3 }, new int[] { 1, 2, 0 })]
+        [InlineData(new int[] { 2, 3, 5 }, new int[] { 2, 0, 5 })]
+        [InlineData(new int[] { 1, 2, 1 }, new int[] { 1, 2, 1 })]
+        
+        public void TestDay17Fix23(int[] nums, int[] expected)
+        {
+            int[] testResult = DaysOfCode.Day17Fix23(nums);
+            Assert.Equal(expected, testResult);
+        }
     }
 }

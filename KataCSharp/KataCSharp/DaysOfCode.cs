@@ -301,6 +301,19 @@ namespace KataCSharp
         //    fix23([1, 2, 3]) → [1, 2, 0]
         //    fix23([2, 3, 5]) → [2, 0, 5]
         //    fix23([1, 2, 1]) → [1, 2, 1]
+        public static int[] Day17Fix23(int[] nums)
+        {
+            int[] result = new int[nums.Length];
+            Array.Copy(nums, result, nums.Length);
+            for (int i = 0; i < result.Length - 1; i++)
+            {
+                if (result[i] == 2 && result[i+1] == 3)
+                {
+                    result[i + 1] = 0;
+                }
+            }
+            return result;
+        }
 
 
         //    Exercise 18: EvenlySpaced

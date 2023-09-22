@@ -11,7 +11,22 @@ namespace KataCSharp;
 
 public class CodeWars
 {
-   
+    /// <summary>
+    /// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string). 
+    /// solution('abc', 'bc') // returns true
+    /// https://www.codewars.com/kata/51f2d1cafc9c0f745c00037d/solutions/csharp
+    /// </summary>
+    /// <param name="str"></param>
+    /// <param name="ending"></param>
+    /// <returns>Boolean</returns>
+
+    public static bool Solution(string str, string ending)
+    {
+        bool result = false;
+        result = str.EndsWith(ending);
+        return result;
+    }
+
     /// <summary>
     /// Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
     /// https://www.codewars.com/kata/558fc85d8fd1938afb000014/solutions/csharp
