@@ -317,10 +317,25 @@ namespace KataCSharp
 
 
         //    Exercise 18: EvenlySpaced
-        //    Create a boolean method called EvenlySpaced that takes in three integers, “a”, “b”, and “c”; Given three ints, a b c, one of them is small, one is medium and one is large.Return true if the three values are evenly spaced, so the difference between small and medium is the same as the difference between medium and large.
+        //    Create a boolean method called EvenlySpaced that takes in three integers, “a”, “b”, and “c”;
+        //    Given three ints, a b c, one of them is small, one is medium and one is large.
+        //    Return true if the three values are evenly spaced, so the difference between small and medium is the same as the difference between medium and large.
         //    evenlySpaced(2, 4, 6) → true
         //evenlySpaced(4, 6, 2) → true
         //evenlySpaced(4, 6, 3) → false
+
+        public static bool Day18EvenlySpaced(int a, int b, int c)
+        {
+            bool result = false;
+            int[] arr = { a, b, c };
+            Array.Sort(arr);
+            if (arr[2] - arr[1] == arr[1] - arr[0])
+            {
+                result = true;
+            }
+            return result;
+        }
+
 
         //Exercise 19: Double23
         //    Create a boolean method called Double23 that takes in an integer array “nums”. Given an int array, return true if the array contains 2 twice, or 3 twice.The array will be length 0, 1, or 2.

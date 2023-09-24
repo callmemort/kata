@@ -192,10 +192,21 @@ namespace KataCSharp.Tests
         [InlineData(new int[] { 1, 2, 3 }, new int[] { 1, 2, 0 })]
         [InlineData(new int[] { 2, 3, 5 }, new int[] { 2, 0, 5 })]
         [InlineData(new int[] { 1, 2, 1 }, new int[] { 1, 2, 1 })]
-        
+
         public void TestDay17Fix23(int[] nums, int[] expected)
         {
             int[] testResult = DaysOfCode.Day17Fix23(nums);
+            Assert.Equal(expected, testResult);
+        }
+
+        [Theory]
+        [InlineData(2, 4, 6, true)]
+        [InlineData(4, 2, 6, true)]
+        [InlineData(4, 6, 3, false)]
+
+        public void TestDay18EvenlySpaced(int a, int b, int c, bool expected)
+        {
+            bool testResult = DaysOfCode.Day18EvenlySpaced(a, b, c);
             Assert.Equal(expected, testResult);
         }
     }
