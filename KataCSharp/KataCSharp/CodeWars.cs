@@ -21,11 +21,15 @@ public class CodeWars
     /// <returns>The function should return an integer, the total time required.</returns>
     public static long QueueTime(int[] customers, int n)
     {
+        if(customers.Length == 0)
+        {
+            return 0;
+        }
         long timer = 0;
         int[] tills = new int[n];
         
         //init tills
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < Math.Min(customers.Length, n); i++)
         {
             tills[i] = customers[i];
             customers[i] = 0;

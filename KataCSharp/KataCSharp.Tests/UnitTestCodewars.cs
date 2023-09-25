@@ -11,7 +11,10 @@ public class UnitTestCodewars
 
     [Theory]
     [InlineData(new int[] { 1, 2, 3, 4 }, 1, 10)]
-    //   [InlineData(new int[] { 19, 5, 42, 2, 77 }, 7)]
+    [InlineData(new int[] {}, 1, 0)]
+    [InlineData(new int[] { 2, 2, 3, 3, 4, 4 }, 2,9 )]
+    [InlineData(new int[] { 1, 2, 3, 4, 5 }, 100, 5)]
+
     public void TestQueueTime(int[] customers, int n, long expected)
     {
         long testResult = CodeWars.QueueTime(customers, n);
