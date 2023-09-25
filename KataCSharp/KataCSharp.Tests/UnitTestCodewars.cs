@@ -8,25 +8,34 @@ namespace KataCSharp.Tests;
 
 public class UnitTestCodewars
 {
-   
 
     [Theory]
-    [InlineData(new int[] { 6, 1, 4, 2, 0, 1, 9, 8, 7, 6 }, 1)]
-    [InlineData(new int[] { 19,5,42,2,77 }, 7)]
-    public void TestSumTwoSmallest(int[] input, int expected)
+    [InlineData(new int[] { 1, 2, 3, 4 }, 1, 10)]
+    //   [InlineData(new int[] { 19, 5, 42, 2, 77 }, 7)]
+    public void TestQueueTime(int[] customers, int n, long expected)
     {
-        int testResult = CodeWars.sumTwoSmallestNumbers(input);
-        Assert.Equal(expected, testResult); 
+        long testResult = CodeWars.QueueTime(customers, n);
+        Assert.Equal(expected, testResult);
     }
 
 
     [Theory]
-    [InlineData("a ClAsH oF kiNGs","A Clash Of Kings")]
-    [InlineData("a ClAsH oF kiNGs","A Clash of Kings", "of")]
+    [InlineData(new int[] { 6, 1, 4, 2, 0, 1, 9, 8, 7, 6 }, 1)]
+    [InlineData(new int[] { 19, 5, 42, 2, 77 }, 7)]
+    public void TestSumTwoSmallest(int[] input, int expected)
+    {
+        int testResult = CodeWars.sumTwoSmallestNumbers(input);
+        Assert.Equal(expected, testResult);
+    }
+
+
+    [Theory]
+    [InlineData("a ClAsH oF kiNGs", "A Clash Of Kings")]
+    [InlineData("a ClAsH oF kiNGs", "A Clash of Kings", "of")]
     [InlineData("a ClAsH oF kiNGs", "A Clash of Kings", "of a")]
     //[InlineData("a ClAsH oF kiNGs", "A Clash Of Kings")]
 
-    public void TestTitleCase(string text, string expected,  string minors = "")
+    public void TestTitleCase(string text, string expected, string minors = "")
     {
         string testResult = CodeWars.TitleCase(text, minors);
 
@@ -48,7 +57,7 @@ public class UnitTestCodewars
     public void TestCreatePhoneNumber()
     {
         Assert.Equal("(614) 201-9876", CodeWars.CreatePhoneNumber(new int[] { 6, 1, 4, 2, 0, 1, 9, 8, 7, 6 }));
-        Assert.Equal("(212) 555-1234", CodeWars.CreatePhoneNumber(new int[] {2,1,2,5,5,5,1,2,3,4 }));
+        Assert.Equal("(212) 555-1234", CodeWars.CreatePhoneNumber(new int[] { 2, 1, 2, 5, 5, 5, 1, 2, 3, 4 }));
     }
 
     [Fact]

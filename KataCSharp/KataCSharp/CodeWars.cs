@@ -4,13 +4,80 @@ using Microsoft.CSharp;
 
 using System.Diagnostics.Metrics;
 using System;
-
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace KataCSharp;
 
 public class CodeWars
 {
+    /// <summary>
+    /// There is a queue for the self-checkout tills at the supermarket. 
+    /// Your task is write a function to calculate the total time required for all the customers to check out!
+    /// </summary>
+    /// <param name="customers">customers: an array of positive integers representing the queue. Each integer represents a customer, and its value is the amount of time they require to check out.</param>
+    /// <param name="n">n: a positive integer, the number of checkout tills.</param>
+    /// <returns>The function should return an integer, the total time required.</returns>
+    public static long QueueTime(int[] customers, int n)
+    {
+        long timer = 0;
+        int[] tills = new int[n];
+        
+        //init tills
+        for (int i = 0; i < n; i++)
+        {
+            tills[i] = customers[i];
+            customers[i] = 0;
+        }
+        bool keepGoing = true;
+        while (keepGoing)
+        {
+            //iterate tills
+            for (int i = 0; i < tills.Length; i++)
+            {
+                //countdown customer
+                if (tills[i] > 0)
+                {
+                    Console.WriteLine($"till {i} is {tills[i]}, decrement...");
+                    tills[i]--;
+                }
+                //if customer done, call next
+                if (tills[i] == 0)
+                {
+                    Console.WriteLine($"till {i} is zero, calling next");
+                    //call next customer
+                    for (int j = 0; j < customers.Length; j++)
+                    {
+                        if (customers[j] > 0)
+                        {
+                            Console.WriteLine($"customer {j} greater than zero, adding to till {i}");
+                            tills[i] = customers[j];
+                            customers[j] = 0;
+                            break;
+                        }
+
+                    }
+                }
+            }
+            //increment timer
+            timer++;
+            Console.WriteLine( $"timer is now {timer}");
+            //check if all customers complete
+
+            if(tills.All(e => e == 0) && customers.All(e => e == 0))
+            {
+                keepGoing = false;
+            }
+          
+
+           
+        }
+            return timer;
+    }
+
+
+
     /// <summary>
     /// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string). 
     /// solution('abc', 'bc') // returns true
