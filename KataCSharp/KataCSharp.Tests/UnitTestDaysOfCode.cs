@@ -209,5 +209,17 @@ namespace KataCSharp.Tests
             bool testResult = DaysOfCode.Day18EvenlySpaced(a, b, c);
             Assert.Equal(expected, testResult);
         }
+        //Day19
+        [Theory]
+        [InlineData(new int[] { 1, 1 }, false)]
+        [InlineData(new int[] { 2, 2 }, true)]
+        [InlineData(new int[] { 3,3 }, true)]
+        [InlineData(new int[] { 3 }, false)]
+
+        public void TestDay19Double23(int[] nums, bool expected) 
+        {
+            bool testResult = DaysOfCode.Day19Double23(nums);
+            Assert.Equal(testResult, expected);
+        }
     }
 }

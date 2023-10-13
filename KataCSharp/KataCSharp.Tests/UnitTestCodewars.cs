@@ -17,6 +17,7 @@ public class UnitTestCodewars
 
     public void TestQueueTime(int[] customers, int n, long expected)
     {
+        
         long testResult = CodeWars.QueueTime(customers, n);
         Assert.Equal(expected, testResult);
     }

@@ -338,10 +338,21 @@ namespace KataCSharp
 
 
         //Exercise 19: Double23
-        //    Create a boolean method called Double23 that takes in an integer array “nums”. Given an int array, return true if the array contains 2 twice, or 3 twice.The array will be length 0, 1, or 2.
+        //    Create a boolean method called Double23 that takes in an integer array “nums”.
+        //    Given an int array, return true if the array contains 2 twice, or 3 twice.The array will be length 0, 1, or 2.
         //double23([2, 2]) → true
         //double23([3, 3]) → true
         //double23([2, 3]) → false
+
+        public static bool Day19Double23(int[] nums)
+        {
+            bool result = false;
+            if(nums.Length == 2)
+            {
+                if ((nums[0] == 2 && nums[1] == 2) || (nums[0] == 3 && nums[1] == 3)) { result = true; }
+            }
+            return result;
+        }
 
         //Exercise 20: BiggerTwo
         //    Create an integer array method called BiggerTwo that takes in two integer arrays “a” and “b”. Start with 2 int arrays, a and b, each length 2. Consider the sum of the values in each array.Return the array which has the largest sum.In event of a tie, return a.
