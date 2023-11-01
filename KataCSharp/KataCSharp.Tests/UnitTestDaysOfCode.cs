@@ -221,5 +221,15 @@ namespace KataCSharp.Tests
             bool testResult = DaysOfCode.Day19Double23(nums);
             Assert.Equal(testResult, expected);
         }
+        //Day20
+        [Theory]
+        [InlineData(new int[] { 1, 2 }, new int[] { 1, 1 }, new int[] { 1, 2 })]
+        [InlineData(new int[] { 1, 2 }, new int[] { 4, 5 }, new int[] { 4, 5 })]
+        [InlineData(new int[] { 3, 3 }, new int[] { 4, 2 }, new int[] { 3, 3 })]
+        public void TestDay20BiggerTwo(int[] a, int[] b, int[] expected)
+        {
+            int[] testResult = DaysOfCode.BiggerTwo(a, b);
+            Assert.Equal(testResult, expected);
+        }
     }
 }

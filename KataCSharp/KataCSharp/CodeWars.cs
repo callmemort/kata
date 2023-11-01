@@ -12,6 +12,26 @@ namespace KataCSharp;
 
 public class CodeWars
 {
+
+    /// <summary>
+    /// Your task is to write a function that takes a string and return a new string with all vowels removed.
+    /// https://www.codewars.com/kata/52fba66badcd10859f00097e/train/csharp
+    /// </summary>
+    /// <param name="str"></param>
+    /// <returns>String</returns>
+    public static string Disemvowel(string str)
+    {
+      //  string[] vowels = { "a", "e", "i", "o", "u", "A","E","I","O","U" };
+        char[] vows = { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
+       // string[] splitStr = new string[str.Length];
+      //  splitStr = str.Split();
+        IEnumerable<char> filtered =  str.Where<char>(c => !(vows.Any(e => e == c)));
+        char[] filteredArr = filtered.ToArray<char>();
+        string result = new string(filteredArr);
+        return result;
+    }
+
+
     /// <summary>
     /// There is a queue for the self-checkout tills at the supermarket. 
     /// Your task is write a function to calculate the total time required for all the customers to check out!

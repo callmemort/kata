@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using Xunit.Sdk;
 
@@ -125,5 +126,13 @@ public class UnitTestCodewars
         int testResult = CodeWars.SumDigits(input); //act
         Assert.Equal(expected, testResult); //assert
     }
-
+    [Theory]
+    [InlineData("This website is for losers LOL!", "Ths wbst s fr lsrs LL!")]
+    [InlineData("What are you, a communist?", "Wht r y,  cmmnst?")]
+    
+    public void TestDisemvowel(string input, string expected)
+    {
+        string testResult = CodeWars.Disemvowel(input);
+        Assert.Equal(expected, testResult);
+    }
 }

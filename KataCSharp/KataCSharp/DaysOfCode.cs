@@ -355,15 +355,32 @@ namespace KataCSharp
         }
 
         //Exercise 20: BiggerTwo
-        //    Create an integer array method called BiggerTwo that takes in two integer arrays “a” and “b”. Start with 2 int arrays, a and b, each length 2. Consider the sum of the values in each array.Return the array which has the largest sum.In event of a tie, return a.
+        //    Create an integer array method called BiggerTwo that takes in two integer arrays “a” and “b”.
+        //    Start with 2 int arrays, a and b, each length 2.
+        //    Consider the sum of the values in each array.Return the array which has the largest sum.
+        //    In event of a tie, return a.
         //    biggerTwo([1, 2], [3, 4]) → [3, 4]
         //    biggerTwo([3, 4], [1, 2]) → [3, 4]
         //    biggerTwo([1, 1], [1, 2]) → [1, 2]
+
+        public static int[] BiggerTwo(int[]a, int[] b)
+        {
+            int[] result = a;
+            if (b[0] + b[1] > a[0] + a[1]) 
+            {
+                result = b;
+            }
+            return result;
+        }
+
         //    Exercise 21: Blackjack
-        //Create an integer method called Blackjack that takes in two integers, “a” and “b”. Given 2 int values greater than 0, return whichever value is nearest to 21 without going over.Return 0 if they both go over.
+        //Create an integer method called Blackjack that takes in two integers, “a” and “b”.
+        //Given 2 int values greater than 0, return whichever value is nearest to 21 without going over.
+        //Return 0 if they both go over.
         //blackjack(19, 21) → 21
         //blackjack(21, 19) → 21
         //blackjack(19, 22) → 19
+
 
         //Exercise 22: ArrayFront9
         //Create a boolean method called ArrayFront9 that takes in an integer array “nums”. Given an array of ints, return true if one of the first 4 elements in the array is a 9. The array length may be less than 4.
